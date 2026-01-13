@@ -171,3 +171,27 @@ Con esto creas un buen MCP para prácticas. Lo próximo sería, adaptarlo a una 
 -Streaming responses
 
 -Quantization (INT8 / 4-bit)
+
+
+## Avances 12/01/2025
+
+Hicimos solo una pequeña modificación para hacer el aplicativo menos dependiente de la memoria, exportamos el pdf a una instancia de MongoDB
+para guardar los datos vectorizados. En mongo db se debe crear algo denominado search index, de tipo vector, para las transformaciones:
+
+<img width="929" height="682" alt="image" src="https://github.com/user-attachments/assets/11e0859d-9737-4c76-9064-973862598471" />
+
+
+El parametro de número de dimensiones es muy importante, relacionado al embedding que se usa para trasnformar el texto en los datos númericos vectoriales de esta linea:
+<img width="887" height="21" alt="image" src="https://github.com/user-attachments/assets/2eb195c7-3fbf-4b5c-b99a-e4942000b648" />
+
+Efectivamente se guardan, el objeto Document de la libreria LangChain wrappea correctamente nuestros registros, ya no son solo arreglos de texto,
+pueden tener metadatos para diferenciar la fuente o cosas extras!
+
+<img width="1914" height="1075" alt="image" src="https://github.com/user-attachments/assets/7f402ee5-05b6-4dd9-803f-2ce267278741" />
+
+
+El output sale normal, sin depender de memoria, ahora guardas vectores. 
+
+<img width="1847" height="1059" alt="image" src="https://github.com/user-attachments/assets/4396a8e8-07c3-4903-8371-e253f9d04991" />
+
+Orita que sea de noche le sigo para puntos más pequeños, y quiero refinar el prompt.
