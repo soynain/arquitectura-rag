@@ -192,6 +192,59 @@ pueden tener metadatos para diferenciar la fuente o cosas extras!
 
 El output sale normal, sin depender de memoria, ahora guardas vectores. 
 
+# Avances 14/01/2025
+
+Ahora quise implementar lo que llaman como short term memory, aquí sugieren usar una instancia de postgress, que lo que hace es guardar los mensajes a corto plazo,
+contruir una memoria para nuestro agente en pocas palabras.
+
+Para prácticas puedes usar tu RAM pero lo más apropiado es usar un docker compose con tus credenciales configuradas:
+ersion: '3.8'
+services:
+  postgres:
+    container_name: postgress
+    image: postgres:17-bookworm
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: tu contra wey
+      POSTGRES_DB: rag_memory
+      POSTGRES_HOST_AUTH_METHOD: md5  # ← Añade esto
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - postgres-net
+volumes:
+  postgres_data:
+
+networks:
+  postgres-net:
+    external: true
+
+Short memory es para recordar conceptos sobre un hilo de conversación, me costó un guebo aunque es sencillo configurarlo porque,
+se me olvidó que tenía una instancia de postgress activa desde el 2024 en mi computadora y me corrompia la conexión del Python.
+
+Una vez hecho esto es fácil entender los siguientes términos:
+
+Conversational memory es para que tu agente recuerde datos que le das en la misma conversación. Long term
+es para recordar conceptos que le diste en otras conversaciones. Esas conversaciones puedes catalogarlas con algo
+llamado thread_id, relacionado a un user_id de tu implementación preferida:
+
+<img width="1086" height="1287" alt="image" src="https://github.com/user-attachments/assets/684d8277-e20b-4207-b4ad-1c691e3a153d" />
+
+Con esto puedes probar esa memoria a corto plazo, solo diciendole tu nombre, una pregunta, volviendole a preguntar algo y preguntandole tu nombre otra vez, listo
+tiene tu RAG una memoria:
+
+<img width="1815" height="287" alt="image" src="https://github.com/user-attachments/assets/8d7ca093-ba6a-41c3-a142-0ce2faa1d8ec" />
+
+De ahí son tópicos parecidos, ya no se extiende tanto el tema del agente, algunas extensiones que pudieran practicarse son solo los bloques
+asincronicos y armarlo con una GUI web.
+
+De ahí siguen los agentes de SQL, pero a grandes razgos no es un tema dificil para aprender en conceptos básicos.
+
+
+
 <img width="1847" height="1059" alt="image" src="https://github.com/user-attachments/assets/4396a8e8-07c3-4903-8371-e253f9d04991" />
 
 Orita que sea de noche le sigo para puntos más pequeños, y quiero refinar el prompt.
