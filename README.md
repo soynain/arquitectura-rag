@@ -198,28 +198,46 @@ Ahora quise implementar lo que llaman como short term memory, aquí sugieren usa
 contruir una memoria para nuestro agente en pocas palabras.
 
 Para prácticas puedes usar tu RAM pero lo más apropiado es usar un docker compose con tus credenciales configuradas:
-ersion: '3.8'
+version: '3.8'
+
 services:
+
   postgres:
+  
     container_name: postgress
+    
     image: postgres:17-bookworm
+    
     restart: always
+    
     environment:
+    
       POSTGRES_USER: root
+      
       POSTGRES_PASSWORD: tu contra wey
+      
       POSTGRES_DB: rag_memory
+      
       POSTGRES_HOST_AUTH_METHOD: md5  # ← Añade esto
+      
     ports:
+    
       - "5432:5432"
+      
     volumes:
+    
       - postgres_data:/var/lib/postgresql/data
     networks:
+    
       - postgres-net
 volumes:
+
   postgres_data:
 
 networks:
+
   postgres-net:
+  
     external: true
 
 Short memory es para recordar conceptos sobre un hilo de conversación, me costó un guebo aunque es sencillo configurarlo porque,
@@ -248,3 +266,16 @@ De ahí siguen los agentes de SQL, pero a grandes razgos no es un tema dificil p
 <img width="1847" height="1059" alt="image" src="https://github.com/user-attachments/assets/4396a8e8-07c3-4903-8371-e253f9d04991" />
 
 Orita que sea de noche le sigo para puntos más pequeños, y quiero refinar el prompt.
+
+# Avances 15/01/2025 
+Ahora creé una API con FastAPI, producto de otro requerimiento para otra vacante que ando persiguiendo.
+Antes me acuerdo que en una experiencia laboral que tuve, se tocaban topicos de python como las venv, me hizo
+acordar de viejos tiempos.
+
+<img width="1049" height="709" alt="image" src="https://github.com/user-attachments/assets/1bb1ed8f-852e-4c5c-bf8f-eed46ea1219f" />
+
+Ambientas venvs para ejecutar comandos isolados para instalación de dependencias por requirements.txt. Easy peacy
+
+<img width="1210" height="212" alt="image" src="https://github.com/user-attachments/assets/cc07e241-d82f-40b4-ac3f-4105f6ab54f5" />
+
+Vamos de poco a poco, tambien me distraje leyendo la docu de fast api. Está sencillo pero lo orientan mucho a openapi
