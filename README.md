@@ -16,7 +16,7 @@ similitud con los datos que vectorizaste de las fuentes de datos almacenadas en 
 Estos se populan por medio de chunks, no almacenas todo el texto completo. Puede tener temas implicitos de procesados
 como etls en escenarios aun más cañones.
 
-#Retriever
+# Retriever
 Decide en base al algoritmo interno cuantos documentos (de la bdd de vectores categorizados) va a utilizar.
 Porque claro, cada informacion o cada base tiene su contexto propio, lo cual representa cierto tiempo
 de computación.
@@ -291,3 +291,25 @@ El siguiente paso será ver el tema del after mode, before model y devolver la r
 es compatible y chance lo mezcle con Angular, para meterme al topico de ese framework que no me late.
 
 <img width="2559" height="1439" alt="image" src="https://github.com/user-attachments/assets/df7684ea-330f-4d99-91bd-4f1dcf39c670" />
+
+# Avances 16/01/2025 parte 2
+Si bien implemente el before o after model, no vi mucha diferencia en el output, sin embargo en mi RAG
+local implementé algo denominado SummaryMiddleware, que trata de resumir conversaciones de tu contexto
+sin necesidad de mandarlo todo al modelo principal, para mandar menos tokens.
+
+<img width="1029" height="1069" alt="image" src="https://github.com/user-attachments/assets/6dc2e11e-a7de-49dd-bb41-f114423fd9f4" />
+
+De acuerdo al MCP del copilot, en esto consiste el summarize:
+
+S<img width="932" height="895" alt="image" src="https://github.com/user-attachments/assets/e87a991e-222e-4a24-8245-6ab1e6873331" />
+
+Otros middlewares principales que no voy a profundizar hasta que me toque trabajar chido:
+
+<img width="1277" height="843" alt="image" src="https://github.com/user-attachments/assets/1091f659-2f36-4e39-bf8e-0d1aeed3641f" />
+
+Listo, ya implementado en FastAPI con un Summarize y uso de async/await, la memoria y el summarize funcionan. Y si quisieramos
+borrar mensajes o contextos, simplemente podemos detonar un dendpoint que los borre de la bdd
+
+<img width="1541" height="1003" alt="image" src="https://github.com/user-attachments/assets/e943571d-ad16-4d0a-b78a-fdd5d4d1f3a7" />
+
+No sé si adentrarme a front o seguirme con otros topicos, yo creo me sigo con otros como pandas y tesseract y opencv.
