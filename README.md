@@ -289,3 +289,5 @@ si hay que ir depurando mensajes
 
 El siguiente paso será ver el tema del after mode, before model y devolver la respuesta en stream, implementar un async o await si
 es compatible y chance lo mezcle con Angular, para meterme al topico de ese framework que no me late.
+
+<img width="2559" height="1439" alt="image" src="https://github.com/user-attachments/assets/df7684ea-330f-4d99-91bd-4f1dcf39c670" />
