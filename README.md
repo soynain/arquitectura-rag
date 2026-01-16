@@ -279,3 +279,13 @@ Ambientas venvs para ejecutar comandos isolados para instalación de dependencia
 <img width="1210" height="212" alt="image" src="https://github.com/user-attachments/assets/cc07e241-d82f-40b4-ac3f-4105f6ab54f5" />
 
 Vamos de poco a poco, tambien me distraje leyendo la docu de fast api. Está sencillo pero lo orientan mucho a openapi
+
+# Avances 16/01/2025 parte 1
+En la noche dije: al menos debo conectar el agente a un fastapi, tuvo fácil, en corto, pero ahora...
+no sé porque me retorna una respuesta más extensa de lo que realmente necesito. Creo tiene algo que ver con el short term memory y
+si hay que ir depurando mensajes
+
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/178fde6e-976f-419d-9796-95181686f707" />
+
+El siguiente paso será ver el tema del after mode, before model y devolver la respuesta en stream, implementar un async o await si
+es compatible y chance lo mezcle con Angular, para meterme al topico de ese framework que no me late.
